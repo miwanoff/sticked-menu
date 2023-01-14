@@ -281,6 +281,19 @@
                     imgDin.style.bottom = "40px";
                 }
             };
+
+            let state = document.readyState;
+            document.getElementById("contents").style.visibility = "hidden";
+            if (state == "interactive") {
+
+                document.getElementById("load").style.visibility = "visible";
+            } else if (state == "complete") {
+                setTimeout(function () {
+                    document.getElementById("load").style.visibility = "hidden";
+                    document.getElementById("contents").style.visibility = "visible";
+                }, 2000);
+            }
+
         };
     </script>
 </body>
